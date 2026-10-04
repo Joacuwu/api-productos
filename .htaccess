@@ -1,0 +1,5 @@
+# URLs limpias: /api/productos/5 -> api.php/productos/5
+RewriteEngine On
+RewriteRule ^api/(.*)$ api.php/$1 [L,QSA]
+# Algunos hostings no pasan el encabezado Authorization/X-API-Key a PHP sin esto
+SetEnvIf X-API-Key "(.*)" HTTP_X_API_KEY=$1
